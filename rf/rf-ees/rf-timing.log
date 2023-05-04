@@ -1,0 +1,40 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu May  4 15:17:23 2023
+| Host         : ees13 running 64-bit Debian GNU/Linux 11 (bullseye)
+| Command      : report_timing -file rf-ees/rf-timing.log
+| Design       : RF
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 out0_sel[2]
+                            (input port)
+  Destination:            out0_data[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        5.351ns  (logic 3.752ns (70.110%)  route 1.599ns (29.890%))
+  Logic Levels:           3  (IBUF=1 OBUF=1 RAMD32=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  out0_sel[2] (IN)
+                         net (fo=0)                   0.000     0.000    out0_sel[2]
+                         IBUF (Prop_ibuf_I_O)         0.982     0.982 r  out0_sel_IBUF[2]_inst/O
+                         net (fo=16, unplaced)        0.800     1.782    reg_reg_r1_0_7_0_0/DPRA2
+                         RAMD32 (Prop_ramd32_RADR2_O)
+                                                      0.124     1.906 r  reg_reg_r1_0_7_0_0/DP/O
+                         net (fo=1, unplaced)         0.800     2.706    out0_data_OBUF[0]
+                         OBUF (Prop_obuf_I_O)         2.645     5.351 r  out0_data_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     5.351    out0_data[0]
+                                                                      r  out0_data[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

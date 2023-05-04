@@ -3,11 +3,11 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity VISCY_IR_TB is
-end VISCY_IR_TB;
+entity IR_TB is
+end IR_TB;
 
 
-architecture TESTBENCH of VISCY_IR_TB is
+architecture TESTBENCH of IR_TB is
 
   -- Component declaration ...
   component IR

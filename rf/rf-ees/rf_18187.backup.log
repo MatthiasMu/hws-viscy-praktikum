@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu May  4 15:11:12 2023
+# Process ID: 18187
+# Current directory: /rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/rf
+# Command line: vivado -notrace -nojournal -log rf-ees/rf.log -mode batch -source rf-ees/rf-synthesize.tcl
+# Log file: /rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/rf/rf-ees/rf.log
+# Journal file: 
+#-----------------------------------------------------------
+source rf-ees/rf-synthesize.tcl -notrace
+
+
+
+###########################################################################
+#
+#          Setup project and read sources ...
+#
+###########################################################################
+
+
+
+
+###########################################################################
+#
+#          RTL-Synthesize design and open it in GUI ...
+#
+###########################################################################
+
+Command: synth_design -rtl
+Starting synth_design
+Using part: xc7z010clg400-1
+Top: rf
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1750.844 ; gain = 154.637 ; free physical = 12250 ; free virtual = 32824
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-439] module 'rf' not found
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1804.594 ; gain = 208.387 ; free physical = 12242 ; free virtual = 32834
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+INFO: [Common 17-206] Exiting Vivado at Thu May  4 15:11:29 2023...

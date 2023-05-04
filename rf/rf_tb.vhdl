@@ -3,12 +3,12 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 -- REGFILE_TB entity declaration
-entity REGFILE_TB is
-end REGFILE_TB;
+entity RF_TB is
+end RF_TB;
 
-architecture TESTBENCH of REGFILE_TB is
+architecture TESTBENCH of RF_TB is
     -- Declare REGFILE component
-    component REGFILE is
+    component RF is
         port (
             clk: in std_logic;                             -- clock signal
             in_data: in std_logic_vector (15 downto 0);    -- 16-bit input bus
@@ -22,7 +22,7 @@ architecture TESTBENCH of REGFILE_TB is
     end component;
     
     -- Point REGFILE component to the submodule's RTL architecture
-    for TEST_REGFILE: REGFILE use entity WORK.REGFILE(RTL);
+    for TEST_REGFILE: RF use entity WORK.RF(RTL);
 
     -- 2D-array (8x 16-bit registers)
     type t_regfile is array (0 to 7) of std_logic_vector(15 downto 0);
@@ -35,7 +35,7 @@ architecture TESTBENCH of REGFILE_TB is
     signal reg: t_regfile;
 begin
     -- Instantiate REGFILE
-    TEST_REGFILE: REGFILE port map(
+    TEST_REGFILE: RF port map(
         clk => clk,
         in_data => in_data,
         in_sel => in_sel,
@@ -85,7 +85,7 @@ begin
         end function;
         
         -- Run full register file test
-        procedure test_regfile (lo, hi, rand: in std_logic; data: in std_logic_vector(15 downto 0); seed: in INTEGER) is
+        procedure run_test_regfile (lo, hi, rand: in std_logic; data: in std_logic_vector(15 downto 0); seed: in INTEGER) is
             variable test_data: std_logic_vector(15 downto 0);
         begin
             test_data := data;
@@ -145,15 +145,15 @@ begin
         end procedure;
     begin
         -- Initialize all registers with 0
-        test_regfile('1', '1', '0', "0000000000000000", 0);
+        run_test_regfile('1', '1', '0', "0000000000000000", 0);
 
         for i in 1 to 10000 loop
             -- Test setting low byte with random data
-            test_regfile('1', '0', '1', "XXXXXXXXXXXXXXXX", i);
+            run_test_regfile('1', '0', '1', "XXXXXXXXXXXXXXXX", i);
             -- Test setting high byte with random data
-            test_regfile('0', '1', '1', "XXXXXXXXXXXXXXXX", i);
+            run_test_regfile('0', '1', '1', "XXXXXXXXXXXXXXXX", i);
             -- Test setting low and high byte with random data
-            test_regfile('1', '1', '1', "XXXXXXXXXXXXXXXX", i);
+            run_test_regfile('1', '1', '1', "XXXXXXXXXXXXXXXX", i);
         end loop;
 
     -- Print a note & finish simulation now

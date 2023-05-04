@@ -1,0 +1,36 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu May  4 12:36:38 2023
+| Host         : ees13 running 64-bit Debian GNU/Linux 11 (bullseye)
+| Command      : report_timing -file pc-ees/pc-timing.log
+| Design       : PC
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 count_reg[0]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            pc_out[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        4.076ns  (logic 3.276ns (80.380%)  route 0.800ns (19.620%))
+  Logic Levels:           2  (FDRE=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         FDRE                         0.000     0.000 r  count_reg[0]/C
+                         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  count_reg[0]/Q
+                         net (fo=3, unplaced)         0.800     1.256    pc_out_OBUF[0]
+                         OBUF (Prop_obuf_I_O)         2.820     4.076 r  pc_out_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     4.076    pc_out[0]
+                                                                      r  pc_out[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

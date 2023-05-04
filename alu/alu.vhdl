@@ -34,7 +34,7 @@ begin
             when "101" => y <= a OR b;                                      -- a OR b
             when "110" => y <= a XOR b;                                     -- a XOR b
             when "111" => y <= NOT a;                                       -- NOT a
-            when others => y <= "0000000000000000";                         -- TODO: good default?
+            when others => y <= "----------------";                         -- TODO: good default?
         end case;
     end process;
 end RTL;

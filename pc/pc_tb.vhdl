@@ -52,11 +52,11 @@ architecture TESTBENCH of PC_TB is
 		--Funktioniert das Laden?
 		--Möglichkeiten: load = 0/1 inc = 0/1
 		--load = 1
-		pc_in <= "1010101010101010"; load <= '1';
+		pc_in <= "1010101010101010"; load <= '1'; inc <= '0';
 		run_cycle;
 		assert pc_out = "1010101010101010" report "Test 1 - Laden fehlgeschlagen";
 		
-		--load = 1 und inc = 1
+		-- load = 1 und inc = 1
 		pc_in <= "0101010101010101"; load <= '1'; inc <= '1';
 		run_cycle;
 		assert pc_out = "0101010101010101" report "Test 2 - Laden fehlgeschlagen";
@@ -89,7 +89,7 @@ architecture TESTBENCH of PC_TB is
 		--Funktioniert das Halten von Werten?
 		pc_in <= "1111111111111111"; load <= '1'; inc <= '0';
 		run_cycle;
-		pc_in <= "1111111111111111"; load <= '0'; inc <='0'; reset <= '0';
+		pc_in <= "0000000000000000"; load <= '0'; inc <='0'; reset <= '0';
 		for x in 0 to 5 loop
 			run_cycle;
 		end loop;

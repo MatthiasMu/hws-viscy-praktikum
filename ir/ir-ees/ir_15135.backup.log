@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu May  4 14:39:45 2023
+# Process ID: 15135
+# Current directory: /rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/ir
+# Command line: vivado -notrace -nojournal -log ir-ees/ir.log -mode batch -source ir-ees/ir-synthesize.tcl
+# Log file: /rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/ir/ir-ees/ir.log
+# Journal file: 
+#-----------------------------------------------------------
+source ir-ees/ir-synthesize.tcl -notrace
+
+
+
+###########################################################################
+#
+#          Setup project and read sources ...
+#
+###########################################################################
+
+
+
+
+###########################################################################
+#
+#          RTL-Synthesize design and open it in GUI ...
+#
+###########################################################################
+
+Command: synth_design -rtl
+Starting synth_design
+Using part: xc7z010clg400-1
+Top: ir
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1750.844 ; gain = 154.637 ; free physical = 12299 ; free virtual = 32834
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'IR' [/rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/ir/ir.vhdl:14]
+INFO: [Synth 8-256] done synthesizing module 'IR' (1#1514) [/rzhome/rapha/Schreibtisch/HWSYS/VISCY/hws-viscy-praktikum-viscy-1/ir/ir.vhdl:14]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1804.594 ; gain = 208.387 ; free physical = 12298 ; free virtual = 32851
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1810.531 ; gain = 214.324 ; free physical = 12294 ; free virtual = 32847
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1810.531 ; gain = 214.324 ; free physical = 12294 ; free virtual = 32847
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1936.312 ; gain = 0.000 ; free physical = 12210 ; free virtual = 32763
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1936.312 ; gain = 340.105 ; free physical = 12210 ; free virtual = 32763
+6 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1936.312 ; gain = 557.641 ; free physical = 12210 ; free virtual = 32763
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu May  4 14:42:12 2023...

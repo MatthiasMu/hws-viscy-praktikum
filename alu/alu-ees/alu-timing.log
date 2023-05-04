@@ -1,0 +1,53 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Thu May  4 14:04:22 2023
+| Host         : ees13 running 64-bit Debian GNU/Linux 11 (bullseye)
+| Command      : report_timing -file alu-ees/alu-timing.log
+| Design       : ALU
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 a[1]
+                            (input port)
+  Destination:            y[15]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        7.383ns  (logic 5.166ns (69.966%)  route 2.217ns (30.034%))
+  Logic Levels:           8  (CARRY4=4 IBUF=1 LUT3=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a[1] (IN)
+                         net (fo=0)                   0.000     0.000    a[1]
+                         IBUF (Prop_ibuf_I_O)         0.982     0.982 r  a_IBUF[1]_inst/O
+                         net (fo=6, unplaced)         0.800     1.782    a_IBUF[1]
+                         LUT3 (Prop_lut3_I2_O)        0.124     1.906 r  y_OBUF[3]_inst_i_9/O
+                         net (fo=1, unplaced)         0.000     1.906    y_OBUF[3]_inst_i_9_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     2.456 r  y_OBUF[3]_inst_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     2.456    y_OBUF[3]_inst_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.570 r  y_OBUF[7]_inst_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     2.570    y_OBUF[7]_inst_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     2.684 r  y_OBUF[11]_inst_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     2.684    y_OBUF[11]_inst_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.329     3.013 r  y_OBUF[15]_inst_i_4/O[3]
+                         net (fo=1, unplaced)         0.618     3.631    data0[15]
+                         LUT6 (Prop_lut6_I2_O)        0.307     3.938 r  y_OBUF[15]_inst_i_1/O
+                         net (fo=1, unplaced)         0.800     4.738    y_OBUF[15]
+                         OBUF (Prop_obuf_I_O)         2.645     7.383 r  y_OBUF[15]_inst/O
+                         net (fo=0)                   0.000     7.383    y[15]
+                                                                      r  y[15] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+

@@ -33,10 +33,12 @@ begin
 	IMPL: ALU port map (a => a_impl, b => b_impl, sel => sel_impl, y => y_impl, zero => zero_impl);
 
 	process
-		constant wait_time: time := 1 ns; -- is there a critical time?
+		constant wait_time: time := 1 ns;
 		
 		-- for random number generation
-		constant prime_number: signed (15 downto 0) := TO_SIGNED(97, 16);
+		constant prime_number: signed (15 downto 0) := TO_SIGNED(2999, 16);
+		constant minus_one: signed(15 downto 0) := TO_SIGNED(-1, 16);
+		
 		variable rnd_a: signed (15 downto 0) := TO_SIGNED(5, 16);
 		variable rnd_b: signed (15 downto 0) := TO_SIGNED(7, 16);
 	
@@ -50,6 +52,14 @@ begin
 			end if;
 		
 			a_impl <= a; b_impl <= b;
+			
+			-- add zero check
+			wait for wait_time;
+			if (b = "0000000000000000") then
+				assert zero_impl = '1' report "Zero port is not 1";
+			else
+				assert zero_impl = '0' report "Zero port is not 0";
+			end if; 
 		
 			-- add
 			y := std_logic_vector(signed(a) + signed(b)); -- signed or unsigned?
@@ -158,12 +168,34 @@ begin
 		
 		-- (Pseudo-)random inputs
 		-- Use prime numbers
-		assert false report "Check with random numbers" severity note;
+		assert false report "Check with positive random numbers" severity note;
 		for n in 1 to 10 loop
 			-- Multiplication doubles length of std vector -> bounds overflow
 			-- Resize to 16 bits, function RESIZE returns signed
 			rnd_a := RESIZE(rnd_a * prime_number, 16);
 			rnd_b := RESIZE(rnd_b * prime_number, 16);
+			
+			--~ if (rnd_a(15) = '1') then
+				--~ assert false report "MSB is 1" severity note;
+			--~ end if;
+			
+			run_all_operations(std_logic_vector(rnd_a), std_logic_vector(rnd_b));
+			wait for wait_time;
+		end loop;
+		
+		
+		assert false report "Check with negative random numbers" severity note;
+		rnd_a := RESIZE(minus_one * rnd_a, 16);
+		rnd_b := RESIZE(minus_one * rnd_b, 16);
+		for n in 1 to 10 loop
+			-- Multiplication doubles length of std vector -> bounds overflow
+			-- Resize to 16 bits, function RESIZE returns signed
+			rnd_a := RESIZE(rnd_a * prime_number, 16);
+			rnd_b := RESIZE(rnd_b * prime_number, 16);
+			
+			--~ if (rnd_a(15) = '1') then
+				--~ assert false report "MSB is 1" severity note;
+			--~ end if;
 			
 			run_all_operations(std_logic_vector(rnd_a), std_logic_vector(rnd_b));
 			wait for wait_time;
